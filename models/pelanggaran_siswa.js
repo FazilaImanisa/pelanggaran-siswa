@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // relasi : pelanggaran_siswa -> siswa
       // key : id_siswa
       // parent : siswa | child : pelanggaran_siswa (FK: id_siswa)
-      // tipe 1 
+      // tipe 1 (one to one)
       this.belongsTo(models.siswa, {
         foreignKey: "id_siswa",
         as: "siswa"
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       // relasi : pelanggaran_siswa -> user
       // key : id_user
       // parent : user | child : pelanggaran_siswa (FK: id_user)
-      // tipe 1 
+      // tipe 1 (one to one)
       this.belongsTo(models.user, {
         foreignKey: "id_user",
         as: "user"
@@ -31,7 +31,11 @@ module.exports = (sequelize, DataTypes) => {
       // relasi : pelanggaran_siswa -> detail_pelanggaran_siswa
       // key : id_pelanggaran_siswa
       // parent : pelanggaran_siswa | child : detail_pelanggaran_siswa (FK : id_pelanggaran_siswa)
-      // tipe 1
+      // tipe 1 (one to many)
+      this.hasMany(models.detail_pelanggaran_siswa, {
+        foreignKey: "id_pelanggaran_siswa",
+        as : "detail_pelanggaran_siswa"
+      })
     }
   }
   pelanggaran_siswa.init({
