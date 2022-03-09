@@ -34,3 +34,5 @@ module.exports = (sequelize, DataTypes) => {
   });
   return detail_pelanggaran_siswa;
 };
+
+// berhubungan dengan database -> menjalankan proses request

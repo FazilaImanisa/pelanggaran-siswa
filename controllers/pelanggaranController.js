@@ -16,6 +16,20 @@ exports.getDataPelanggaran = (request, response) => {
     })
 }
 
+exports.findPelanggaran = async (request, response) => {
+    let keyword = request.body.keyword
+    let sequelize = require(`sequelize`)
+    let Op = sequelize.Op
+
+    let dataPelanggaran = await modelPelanggaran.findAll({
+        where: {
+            nama_pelanggaran : { [Op.like]: `%${keyword}%`}
+        }
+    })
+
+    return response.json(dataPelanggaran)
+}
+
 exports.addDataPelanggaran = (request, response) => {
     // tampung data request
     let newPelanggaran = {
@@ -71,3 +85,6 @@ exports.deleteDataPelanggaran = (request, response) => {
         })
     })
 }
+
+// fungsi utama berada di file controllers 
+// yang menerima request dan menghasilkann response

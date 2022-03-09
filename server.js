@@ -20,3 +20,6 @@ for (let i = 0; i < routes.length; i++) {
 app.listen(PORT, () => {
     console.log(`Server run on port ${PORT}`);
 })
+
+// file utama berisi untuk menyambungkan file file dari routes
+// routes = url 

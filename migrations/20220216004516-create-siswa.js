@@ -34,3 +34,6 @@ module.exports = {
     await queryInterface.dropTable('siswa');
   }
 };
+
+// file migrations digunakan untuk membuat struktur database
+// membuat/menghapus tabel dan / atau kolom
